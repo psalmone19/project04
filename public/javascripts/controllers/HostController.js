@@ -4,10 +4,12 @@
     .module("chordChart")
     .controller("HostController", HostController)
 
-  HostController.$inject = ["$log"]
+  HostController.$inject = ["$log", "$scope"]
 
-  function HostController ($log) {
+  function HostController ($log, $scope) {
     var vm = this;
+    var index = 0;
+    var socket = io();
 
     vm.song = {
       title: "How Great is Our God",
@@ -57,7 +59,6 @@
     }
 
     vm.title = vm.song.title
-    var index = 0;
     vm.current = vm.song.sections[index]
     vm.next = vm.song.sections[index + 1]
     vm.nextFunc = next;
@@ -80,11 +81,22 @@
       index = $index;
       vm.current = vm.song.sections[index]
       vm.next = vm.song.sections[index + 1]
+      // sender
+      socket.emit('change-section', $index)
+      $log.log("Sent to server")
     }
 
+    // receiver
+    socket.on('connect', function() {
+      socket.on('change-section', function($index) {
+        index = $index;
+        vm.current = vm.song.sections[index]
+        vm.next = vm.song.sections[index + 1]
+        $scope.$apply();
+        $log.log("Received from sender")
+      })
+    })
+
   }
-
-
-
 
 })();
