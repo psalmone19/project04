@@ -4,16 +4,16 @@
     .module("chordChart")
     .controller("HostController", HostController)
 
-  HostController.$inject = []
+  HostController.$inject = ["$log"]
 
-  function HostController () {
+  function HostController ($log) {
     var vm = this;
 
     vm.song = {
       title: "How Great is Our God",
       sections: [
         {
-          name: "Verse 1:",
+          name: "Verse 1",
           content:
             `The splendor of a king
             Clothed in majesty
@@ -25,7 +25,7 @@
             Trembles at His voice`
         },
         {
-          name: "Chorus:",
+          name: "Chorus",
           content:
           `How great is our God
           Sing with me
@@ -34,7 +34,7 @@
           How great, how great is our God`
         },
         {
-          name: "Verse 2:",
+          name: "Verse 2",
           content:
           `Age to age He stands
           And time is in His hands
@@ -46,7 +46,7 @@
           Lion and the Lamb`
         },
         {
-          name: "Bridge:",
+          name: "Bridge",
           content:
           `Name above all names
           You are worthy of all praise
@@ -62,6 +62,7 @@
     vm.next = vm.song.sections[index + 1]
     vm.nextFunc = next;
     vm.back = back;
+    vm.sectionSelect = sectionSelect;
 
     function next() {
       index++;
@@ -75,7 +76,15 @@
       vm.next = vm.song.sections[index - 1]
     }
 
+    function sectionSelect($index) {
+      index = $index;
+      vm.current = vm.song.sections[index]
+      vm.next = vm.song.sections[index + 1]
+    }
+
   }
+
+
 
 
 })();

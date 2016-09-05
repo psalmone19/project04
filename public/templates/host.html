@@ -7,9 +7,7 @@
      <button ng-click="host.nextFunc()">Next</button>
    </div>
    <ul class="section-buttons">
-     <li><button>V1</button></li>
-     <li><button>C</button></li>
-     <li><button>V2</button></li>
-     <li><button>B</button></li>
+     <li ng-repeat="section in host.song.sections" ng-click="host.sectionSelect($index)"><button>{{ section.name }}</button></li>
    </ul>
+
 </div>
