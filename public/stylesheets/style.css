@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.current {
+
+}
+.next {
+
+}
+.repeat-next-buttons {
+
+}
+.section-buttons {
+  display: flex;
+  list-style-type: none;
+}
+
+.section-buttons li {
+  min-width: 25px;
+  margin: 10px;
+  text-align: center;
+  border: 1px solid red;
+}
+
+

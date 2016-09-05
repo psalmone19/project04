@@ -1,0 +1,15 @@
+<div class="container">
+   <h1>{{ host.title }}</h1>
+   <p class="current">{{ host.current.name }} <br> {{ host.current.content }}</p>
+   <p class="next">{{ host.next.name }} <br> {{ host.next.content }}</p>
+   <div class="repeat-next-buttons">
+     <button ng-click="host.back()">Back</button>
+     <button ng-click="host.nextFunc()">Next</button>
+   </div>
+   <ul class="section-buttons">
+     <li><button>V1</button></li>
+     <li><button>C</button></li>
+     <li><button>V2</button></li>
+     <li><button>B</button></li>
+   </ul>
+</div>
