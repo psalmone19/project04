@@ -4,12 +4,4 @@
      <p class="current">{{ host.current.name }} <br> {{ host.current.content }}</p>
      <p class="next">{{ host.next.name }} <br> {{ host.next.content }}</p>
    </div>
-   <div class="repeat-next-buttons">
-     <button ng-click="host.back($index)">Back</button>
-     <button ng-click="host.nextFunc($index)">Next</button>
-   </div>
-   <ul class="section-buttons">
-     <li ng-repeat="section in host.song.sections" ng-click="host.sectionSelect($index)"><button>{{ section.name }}</button></li>
-   </ul>
-
 </div>

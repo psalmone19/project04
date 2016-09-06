@@ -1,17 +1,20 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
 }
 
 a {
   color: #00B7FF;
 }
-/*
-***************
-//////HOST/////
-****************/
+
+
+
+/******************************
+/////////// H O S T ///////////
+******************************/
 .host-view .container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 .host-view ..current {
 
@@ -34,9 +37,12 @@ a {
   border: 1px solid red;
 }
 
-/***************
-////COMPONENT///
-***************/
+
+
+/******************************
+////// C O M P O N E N T //////
+******************************/
+
 .lyrics {
 
 }
@@ -50,13 +56,102 @@ a {
 
 }
 
-/****************
-//////HOME/////
-****************/
+
+
+/******************************
+/////////// H O M E ///////////
+******************************/
 .home-container {
   height: 100vh;
   width: 100vw;
-  background-color: red;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navbar {
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.home-header {
+  color: white;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+.home-content {
+  color: white;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.home-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.join-host-show {
+  display: flex;
+  justify-content: center;
+}
+
+.hidden-input {
+  outline: none;
+}
+
+.home-content-links {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  margin: 10px;
+  padding: 10px 100px;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.home-content-links:hover {
+  background-color: #fff;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+
+
+/******************************
+///////// C R E A T E /////////
+******************************/
+
+.create-container {
+  display: flex;
+  max-width: 100vw;
+}
+
+.search {
+  width: 50%;
+  height: 100vh;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 80%;
+  display: flex;
+  margin-top: 10px;
+
+}
+
+.songlist {
+  width: 50%;
+  height: 100vh;
+  border: 1px solid black;
 }
 
 

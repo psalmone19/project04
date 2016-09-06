@@ -4,10 +4,21 @@
     .module("chordChart")
     .controller("HomeController", HomeController)
 
-  HomeController.$inject = []
+  HomeController.$inject = ["$log", "$state"]
 
-  function HomeController() {
+  function HomeController($log, $state) {
     var vm = this;
+
+    vm.join = false;
+    vm.host = false;
+
+    function join() {
+      $state.go("view")
+    }
+
+    function host() {
+      $state.go("create")
+    }
 
   }
 
