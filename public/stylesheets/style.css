@@ -1,35 +1,65 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
-
-.container {
+/*
+***************
+//////HOST/////
+****************/
+.host-view .container {
   display: flex;
   flex-direction: column;
 }
-.current {
+.host-view ..current {
 
 }
-.next {
+.host-view .next {
 
 }
-.repeat-next-buttons {
+.host-view .repeat-next-buttons {
 
 }
-.section-buttons {
+.host-view .section-buttons {
   display: flex;
   list-style-type: none;
 }
 
-.section-buttons li {
+.host-view .section-buttons li {
   min-width: 25px;
   margin: 10px;
   text-align: center;
   border: 1px solid red;
 }
+
+/***************
+////COMPONENT///
+***************/
+.lyrics {
+
+}
+.lyrics .current {
+
+}
+.lyrics .next {
+
+}
+.lyrics {
+
+}
+
+/****************
+//////HOME/////
+****************/
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+}
+
+
+
 
 

@@ -65,16 +65,18 @@
     vm.back = back;
     vm.sectionSelect = sectionSelect;
 
-    function next() {
+    function next($index) {
       index++;
       vm.current = vm.song.sections[index]
       vm.next = vm.song.sections[index + 1]
+      socket.emit('change-section', index)
     }
 
-    function back() {
+    function back($index) {
       index--;
       vm.current = vm.song.sections[index]
       vm.next = vm.song.sections[index - 1]
+      socket.emit('change-section', index)
     }
 
     function sectionSelect($index) {
@@ -82,7 +84,7 @@
       vm.current = vm.song.sections[index]
       vm.next = vm.song.sections[index + 1]
       // sender
-      socket.emit('change-section', $index)
+      socket.emit('change-section', index)
       $log.log("Sent to server")
     }
 

@@ -14,6 +14,11 @@
           controller: "HostController as host",
           templateUrl: '/templates/host.html'
         })
+        .state('home', {
+          url: '/home',
+          controller: "HomeController as home",
+          templateUrl: '/templates/home.html'
+        })
 
 
 
