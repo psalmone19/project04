@@ -19,11 +19,12 @@
           controller: "HomeController as home",
           templateUrl: "/templates/home.html"
         })
-        .state("create", {
-          url: "/create",
-          controller: "CreateController as create",
-          templateUrl: "/templates/create.html"
+        .state("setup", {
+          url: "/setup",
+          controller: "SetupController as setup",
+          templateUrl: "/templates/setup.html"
         })
+
 
       $urlRouterProvider.otherwise("home");
     }

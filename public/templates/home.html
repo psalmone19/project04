@@ -24,18 +24,22 @@
 <div class="home-container">
   <h1 class="home-header">Music</h1>
   <p class="home-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <div class="home-button-container">
-    <a class="home-content-links" ng-click="join = !join">Join</a>
-    <a class="home-content-links" ng-click="host = !host">Host</a>
-  </div>
-  <div class="join-host-show">
-    <input class="hidden-input" ng-show="join" type="text" autofocus placeholder="Enter code">
-    <button type="button" class="btn btn-primary" ng-show="join" ng-click="">Submit</button>
-    <input class="hidden-input" ng-show="host" type="text" autofocus placeholder="Create code">
-    <button type="button" class="btn btn-success" ng-show="host">Create</button>
-  </div>
-</div>
 
+  <div class="home-button-container">
+    <a class="home-content-links join" ng-click="jointoggle = !jointoggle">Join</a>
+    <a class="home-content-links host" ng-click="hosttoggle = !hosttoggle">Host</a>
+  </div>
+
+  <form class="join-host-show">
+    <input ng-model="home.createdCode" class="hidden-input" ng-show="jointoggle" type="text" placeholder="Enter code" autofocus>
+    <button ng-click="home.join()" type="button" class="btn btn-primary" ng-show="jointoggle">Join</button>
+
+    <input ng-model="home.createdCode" class="hidden-input create-code" ng-show="hosttoggle" type="text" placeholder="Create code" autofocus>
+    <button ng-click="home.host()" type="button" class="btn btn-success" ng-show="hosttoggle">Create</button>
+  </form>
+
+  <h1>{{ home.error }}</h1>
+</div>
 
 
   <!-- Small modal -->

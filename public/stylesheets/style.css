@@ -16,11 +16,11 @@ a {
   flex-direction: column;
   justify-content: center;
 }
-.host-view ..current {
-
+.host-view .current {
+  white-space: pre-line;
 }
 .host-view .next {
-
+  white-space: pre-line;
 }
 .host-view .repeat-next-buttons {
 
@@ -54,6 +54,12 @@ a {
 }
 .lyrics {
 
+}
+
+.btn {
+  outline: none !important;
+  margin-right: -5px !important;
+  border-radius: 0 !important;
 }
 
 
@@ -100,6 +106,10 @@ a {
   outline: none;
 }
 
+.create-code {
+  margin-left: 25px;
+}
+
 .home-content-links {
   background-color: transparent;
   border: 1px solid white;
@@ -119,6 +129,27 @@ a {
   text-decoration: none;
   color: #000;
   cursor: pointer;
+}
+
+.songs {
+  display: flex;
+}
+
+.song-artist {
+  display: flex;
+  flex-direction: column;
+}
+
+.albumcover {
+
+}
+
+.song-title {
+
+}
+
+.artist {
+
 }
 
 

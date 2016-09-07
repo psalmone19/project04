@@ -4,30 +4,30 @@
     .module("chordChart")
     .controller("HostController", HostController)
 
-  HostController.$inject = ["$log", "$scope"]
+  HostController.$inject = ["$log", "$scope", "SocketService"]
 
-  function HostController ($log, $scope) {
+  function HostController ($log, $scope, socket) {
     var vm = this;
     var index = 0;
-    var socket = io();
+
 
     vm.song = {
       title: "How Great is Our God",
       sections: [
         {
-          name: "Verse 1",
+          name: "\nVerse 1",
           content:
             `The splendor of a king
             Clothed in majesty
             Let all the earth rejoice
-            All the earth rejoice
+            All the earth rejoice\n
             He wraps Himself in light,
             And darkness tries to hide
             And trembles at His voice
             Trembles at His voice`
         },
         {
-          name: "Chorus",
+          name: "\nChorus",
           content:
           `How great is our God
           Sing with me
@@ -36,19 +36,19 @@
           How great, how great is our God`
         },
         {
-          name: "Verse 2",
+          name: "\nVerse 2",
           content:
           `Age to age He stands
           And time is in His hands
           Beginning and the end
-          Beginning and the end
+          Beginning and the end\n
           The Godhead Three in One
           Father, Spirit, Son
           Lion and the Lamb
           Lion and the Lamb`
         },
         {
-          name: "Bridge",
+          name: "\nBridge",
           content:
           `Name above all names
           You are worthy of all praise
