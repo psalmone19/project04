@@ -131,34 +131,13 @@ a {
   cursor: pointer;
 }
 
-.songs {
-  display: flex;
-}
-
-.song-artist {
-  display: flex;
-  flex-direction: column;
-}
-
-.albumcover {
-
-}
-
-.song-title {
-
-}
-
-.artist {
-
-}
-
 
 
 /******************************
-///////// C R E A T E /////////
+///////// S E T U P /////////
 ******************************/
 
-.create-container {
+/*.create-container {
   display: flex;
   max-width: 100vw;
 }
@@ -183,6 +162,45 @@ a {
   width: 50%;
   height: 100vh;
   border: 1px solid black;
+}*/
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.search-list {
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  background-color: ;
+}
+
+.songs {
+  display: flex;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.songs:hover {
+  background-color: #F1EBEA;
+}
+
+.song-artist {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.albumcover {
+
+}
+
+.song-title {
+
+}
+
+.artist {
+
 }
 
 

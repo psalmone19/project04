@@ -4,9 +4,9 @@
     .module("chordChart")
     .controller("HomeController", HomeController)
 
-  HomeController.$inject = ["$log", "$state", "SocketService", "$scope"]
+  HomeController.$inject = ["$log", "$state", "SocketService", "GlobalService", "$scope"]
 
-  function HomeController($log, $state, socket, $scope) {
+  function HomeController($log, $state, socket, global, $scope) {
     var vm = this;
     var hostIs = false;
 
@@ -22,6 +22,7 @@
         socket.emit("getSongs", vm.createdCode)
         hostIs = true;
         console.log("you're a host")
+        global.createdCode = vm.createdCode
     }
     socket.on("redirectHost", function() {
         $state.go('setup');

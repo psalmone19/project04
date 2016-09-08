@@ -4,66 +4,68 @@
     .module("chordChart")
     .controller("HostController", HostController)
 
-  HostController.$inject = ["$log", "$scope", "SocketService"]
+  HostController.$inject = ["$log", "$scope", "SocketService", "GlobalService", "$state"]
 
-  function HostController ($log, $scope, socket) {
+  function HostController ($log, $scope, socket, global, $state) {
     var vm = this;
     var index = 0;
 
 
-    vm.song = {
-      title: "How Great is Our God",
-      sections: [
-        {
-          name: "\nVerse 1",
-          content:
-            `The splendor of a king
-            Clothed in majesty
-            Let all the earth rejoice
-            All the earth rejoice\n
-            He wraps Himself in light,
-            And darkness tries to hide
-            And trembles at His voice
-            Trembles at His voice`
-        },
-        {
-          name: "\nChorus",
-          content:
-          `How great is our God
-          Sing with me
-          How great is our God
-          And all will see
-          How great, how great is our God`
-        },
-        {
-          name: "\nVerse 2",
-          content:
-          `Age to age He stands
-          And time is in His hands
-          Beginning and the end
-          Beginning and the end\n
-          The Godhead Three in One
-          Father, Spirit, Son
-          Lion and the Lamb
-          Lion and the Lamb`
-        },
-        {
-          name: "\nBridge",
-          content:
-          `Name above all names
-          You are worthy of all praise
-          And my heart will sing
-          How great is our God`
-        }
-      ]
-    }
 
-    vm.title = vm.song.title
-    vm.current = vm.song.sections[index]
-    vm.next = vm.song.sections[index + 1]
+    // vm.song = {
+    //   title: "How Great is Our God",
+    //   sections: [
+    //     {
+    //       name: "\nVerse 1",
+    //       content:
+    //         `The splendor of a king
+    //         Clothed in majesty
+    //         Let all the earth rejoice
+    //         All the earth rejoice\n
+    //         He wraps Himself in light,
+    //         And darkness tries to hide
+    //         And trembles at His voice
+    //         Trembles at His voice`
+    //     },
+    //     {
+    //       name: "\nChorus",
+    //       content:
+    //       `How great is our God
+    //       Sing with me
+    //       How great is our God
+    //       And all will see
+    //       How great, how great is our God`
+    //     },
+    //     {
+    //       name: "\nVerse 2",
+    //       content:
+    //       `Age to age He stands
+    //       And time is in His hands
+    //       Beginning and the end
+    //       Beginning and the end\n
+    //       The Godhead Three in One
+    //       Father, Spirit, Son
+    //       Lion and the Lamb
+    //       Lion and the Lamb`
+    //     },
+    //     {
+    //       name: "\nBridge",
+    //       content:
+    //       `Name above all names
+    //       You are worthy of all praise
+    //       And my heart will sing
+    //       How great is our God`
+    //     }
+    //   ]
+    // }
+
+    // vm.title = vm.song.title
+    // vm.current = vm.song.sections[index]
+    // vm.next = vm.song.sections[index + 1]
     vm.nextFunc = next;
     vm.back = back;
     vm.sectionSelect = sectionSelect;
+    vm.listOfSong;
 
     function next($index) {
       index++;
@@ -97,6 +99,21 @@
         $scope.$apply();
         $log.log("Received from sender")
       })
+    })
+
+    socket.on('songLists', function(listOfSong) {
+      console.log("list of song ran")
+      vm.listOfSong = listOfSong
+      console.log(listOfSong)
+      $scope.$apply()
+    })
+      socket.emit('getSongList')
+
+    $http.get('/getRoom', {
+      roomCode: global.createdCode
+    })
+    .then(function(response) {
+      vm.listOfSong = response.data.songs
     })
 
   }

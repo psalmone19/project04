@@ -1,13 +1,17 @@
-<form>
-<input type="search" ng-model="setup.artist">
-<input type="search" ng-model="setup.track">
+<form class="search-form">
+<input type="search" ng-model="setup.artist" placeholder="Search artist">
+<input type="search" ng-model="setup.track" placeholder="Search song">
 <button ng-click="setup.getTrack()" type="submit">Submit</button>
 </form>
 
-<div class="songs" ng-repeat="song in setup.data">
- <img class="albumcover" ng-src="{{song.track.album_coverart_100x100}}" alt="albumcover">
- <div class="song-artist">
-   <p class="song-title">{{ song.track.track_name }}</p>
-   <p class="artist">{{ song.track.artist_name }}</p>
- </div>
+<div class="search-list">
+  <div class="songs" ng-repeat="song in setup.data" ng-click="setup.select(song)">
+   <img class="albumcover" ng-src="{{song.track.album_coverart_100x100}}" alt="albumcover">
+   <div class="song-artist">
+     <strong><p class="song-title">{{ song.track.track_name }}</p></strong>
+     <p class="artist">{{ song.track.artist_name }}</p>
+   </div>
+  </div>
 </div>
+
+<a ng-click="setup.done()" href="">Done</a>

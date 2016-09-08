@@ -1,6 +1,6 @@
 <div class="container host-view">
    <div class="lyrics">
-     <h1>{{ host.title }}</h1>
+     <!-- <h1>{{  }}</h1> -->
      <div class="current">{{ host.current.name }} <br> {{ host.current.content }}</div>
      <div class="next">{{ host.next.name }} <br> {{ host.next.content }}</div>
    </div>
@@ -11,5 +11,11 @@
    <ul class="section-buttons">
      <li ng-repeat="section in host.song.sections" ng-click="host.sectionSelect($index)"><button>{{ section.name }}</button></li>
    </ul>
+
+   <div>
+     <ul>
+       <li ng-repeat="song in host.listOfSong">{{song.title}}</li>
+     </ul>
+   </div>
 
 </div>

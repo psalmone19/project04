@@ -7,6 +7,7 @@ io.on('connection', function(socket) {
     console.log("received from sender")
       io.emit('change-section', $index);
   });
+
   // HOST
   socket.on('getSongs', function(room) {
     var fail = false; // controlled var to check states against.
@@ -28,6 +29,11 @@ io.on('connection', function(socket) {
   socket.on('joinRoom', function(room) {
     socket.join(room)
     io.to(room).emit("justJoin")
+  })
+
+  socket.on("getSongList", function() {
+    io.emit("songLists")
+    console.log("I received connection")
   })
 });
 
