@@ -48,9 +48,32 @@ var all = function(req, res) {
   })
 }
 
+//||||||||||||||||||||||||||--
+// UPDATE ROOM
+//||||||||||||||||||||||||||--
+function roomUpdate(req, res, next) {
+  var roomCode = req.query.code;
+  console.log("Room code: ", roomCode);
+  Room.find({roomCode: roomCode}, function(err, room) {
+    if (err) {
+      res.json(err);
+    } else {
+      console.log("this is the room: ", room);
+      room[0].songs = req.body.songs;
+      room[0].save(function(err, updatedRoom) {
+        if (err) console.log(err);
+        res.json(updatedRoom);
+      })
+    }
+  })
+}
+
+
+
 module.exports = {
   roomCreate: roomCreate,
   roomRead: roomRead,
-  all: all
+  all: all,
+  roomUpdate: roomUpdate
 }
 

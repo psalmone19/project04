@@ -7,7 +7,7 @@ var songSchema = new mongoose.Schema({
 })
 
 var roomSchema = new mongoose.Schema({
-  roomCode: String,
+  roomCode: {type: String, required: true, unique: true},
   songs: [songSchema]
 })
 

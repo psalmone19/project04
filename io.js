@@ -1,6 +1,16 @@
 var io = require('socket.io')();
 var rooms = [];
-var Song = require('./models/song');
+var Room = require('./models/song');
+
+function updateRooms() {
+  Room.find({}, function(err, rooms) {
+    if (err) console.log(err);
+    rooms = rooms.map(priv => priv.roomCode);
+    console.log(rooms);
+  });
+};
+
+updateRooms();
 
 io.on('connection', function(socket) {
   // console.log('inside');
@@ -11,21 +21,23 @@ io.on('connection', function(socket) {
 
   // HOST
   socket.on('moveToSetup', function(room) {
-    // controlled var to check states against.
+    var fail = false; // controlled var to check states against.
     // $http.get('/allRooms')
     // .then(function(response) {
     //   console.log(response.data)
     // })
-    Song.find({roomCode: room}, function(err, room) {
-      if (room) {
-        io.emit("roomExists");
-      } else {
-        rooms.push(room)
-        // '.join' joins a room. parameter 'room' is whatever hosts inputs in field.
-        socket.join(room)
-        io.to(room).emit("redirectHost")
+    rooms.forEach(function(session) {
+      if (session === room) {
+        io.emit("roomExists")
+        fail = true;
       }
     })
+    if (!fail) {
+      rooms.push(room)
+      // '.join' joins a room. parameter 'room' is whatever hosts inputs in field.
+      socket.join(room)
+      io.to(room).emit("redirectHost")
+    }
   })
 
   // JOIN

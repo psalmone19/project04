@@ -4,9 +4,9 @@
     .module("chordChart")
     .controller("HomeController", HomeController)
 
-  HomeController.$inject = ["$log", "$state", "SocketService", "GlobalService", "$scope"]
+  HomeController.$inject = ["$log", "$state", "$http", "SocketService", "GlobalService", "$scope"]
 
-  function HomeController($log, $state, socket, global, $scope) {
+  function HomeController($log, $state, $http, socket, global, $scope) {
     var vm = this;
     var hostIs = false;
 
@@ -20,10 +20,15 @@
     vm.join = join
 
     function host() {
-        socket.emit("moveToSetup", vm.createdCode)
-        hostIs = true;
-        console.log("you're a host", vm.createdCode)
-        global.createdCode = vm.createdCode
+      $http.post("/api/rooms", { roomCode: vm.createdCode })
+        .then(function(response) {
+          socket.emit("moveToSetup", vm.createdCode)
+          hostIs = true;
+          console.log("you're a host", vm.createdCode)
+          global.createdCode = vm.createdCode;
+        }, function(err) {
+          $log.warn(err);
+        })
     }
 
     socket.on("redirectHost", function() {
@@ -36,12 +41,14 @@
     })
 
     function join() {
-        console.log("joined", vm.codeToJoin)
+        console.log("joined", vm.codeToJoin);
         socket.emit("joinRoom", vm.codeToJoin)
     }
     socket.on("justJoin", function() {
-        if (!hostIs)
-            $state.go("host");
+      if (!hostIs) {
+        global.createdCode = vm.codeToJoin;
+        $state.go("host");
+      }
     })
 
   }

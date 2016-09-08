@@ -16,7 +16,7 @@
     vm.nextFunc = next;
     vm.back = back;
     vm.sectionSelect = sectionSelect;
-    vm.listOfSong;
+    vm.listOfSongs;
 
     function next($index) {
       index++;
@@ -52,20 +52,22 @@
       })
     })
 
-    // socket.on('songLists', function(listOfSong) {
+    // socket.on('songLists', function(listOfSongs) {
     //   $log.log("list of song ran")
-    //   vm.listOfSong = listOfSong
+    //   vm.listOfSongs = listOfSongs
     //   $scope.$apply()
     // })
 
     // socket.emit('getSongList')
 
-    $http.post('/getRoom', {
-      roomCode: global.createdCode
-    })
+
+    $http.get('/api/rooms') // /?room=' + global.createdCode
     .then(function(response) {
-      vm.listOfSong = response.data.songs
-      $log.log(vm.listOfSong)
+      var myRoom = response.data.filter(function(rum) {
+        return rum.roomCode === global.createdCode;
+      })[0];
+      vm.listOfSongs = myRoom.songs;
+      $log.log(vm.listOfSongs);
     })
 
   }

@@ -24,7 +24,7 @@
     }
 
     function getTrack() {
-      $http.get('/getTrack?artist='+vm.artist+'&track='+vm.track)
+      $http.get('/api/tracks?artist='+vm.artist+'&track='+vm.track)
       .then(function(response) {
         vm.data = response.data.trackList.track_list
       })
@@ -34,7 +34,7 @@
     }
 
     function select(song) {
-      $http.get('/getLyric?track_id='+song.track.track_id)
+      $http.get('/api/lyrics?track_id='+song.track.track_id)
       .then(function(response) {
         vm.lyrics = response.data.lyrics
         vm.mySongs.push({
@@ -51,8 +51,7 @@
     function done() {
       // sending a post request to database
       // this will go to index.js(route) and then to the actual function
-      $http.post('/newRoom', {
-        roomCode: global.createdCode,
+      $http.put('/api/rooms?code=' + global.createdCode, {
         songs: vm.mySongs
       })
       .then(function(response) {

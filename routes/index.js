@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/getTrack', function(req, res, next) {
+router.get('/tracks', function(req, res, next) {
   console.log("Request --->", req.query)
   var rootUrl = "http://api.musixmatch.com/ws/1.1/track.search?";
   var qTrack = "q_track="+req.query.track;
@@ -31,7 +31,7 @@ router.get('/getTrack', function(req, res, next) {
 
 })
 
-router.get('/getLyric', function(req, res, next) {
+router.get('/lyrics', function(req, res, next) {
   var lyricUrl = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?"
   var trackid = "track_id="+req.query.track_id;
   var apikey = "&apikey="+process.env.API_KEY
@@ -51,9 +51,10 @@ router.get('/getLyric', function(req, res, next) {
     })
 })
 
-router.post('/newRoom', roomController.roomCreate)
-router.post('/getRoom', roomController.roomRead)
-router.get('/allRooms', roomController.all)
+router.get('/rooms',     roomController.all)
+router.get('/rooms/:id', roomController.roomRead)
+router.post('/rooms',    roomController.roomCreate)
+router.put('/rooms',     roomController.roomUpdate)
 
 
 module.exports = router;
