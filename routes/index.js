@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var rp = require('request-promise');
-var roomController = require('../controllers/RoomController')
+var roomController = require('../controllers/roomController')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -52,28 +52,8 @@ router.get('/getLyric', function(req, res, next) {
 })
 
 router.post('/newRoom', roomController.roomCreate)
-
-router.get('/getRoom', roomController.roomRead)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+router.post('/getRoom', roomController.roomRead)
+router.get('/allRooms', roomController.all)
 
 
 module.exports = router;

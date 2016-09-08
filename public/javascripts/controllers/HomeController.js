@@ -12,6 +12,7 @@
 
     vm.error = ''
     vm.code = ''
+    vm.codeToJoin = ''
     vm.createdCode = ''
     vm.jointoggle = false
     vm.hosttoggle = false
@@ -19,23 +20,24 @@
     vm.join = join
 
     function host() {
-        socket.emit("getSongs", vm.createdCode)
+        socket.emit("moveToSetup", vm.createdCode)
         hostIs = true;
-        console.log("you're a host")
+        console.log("you're a host", vm.createdCode)
         global.createdCode = vm.createdCode
     }
+
     socket.on("redirectHost", function() {
         $state.go('setup');
     })
     socket.on("roomExists", function() {
-        console.log("wanna go night night nigguh?")
-        vm.error = "This room taken nigguh. black lives matter nigguh."
+        console.log("wanna go night night?")
+        vm.error = "Knock somewhere else."
         $scope.$apply();
     })
 
     function join() {
-        console.log("you just joined")
-        socket.emit("joinRoom", vm.createdCode)
+        console.log("joined", vm.codeToJoin)
+        socket.emit("joinRoom", vm.codeToJoin)
     }
     socket.on("justJoin", function() {
         if (!hostIs)

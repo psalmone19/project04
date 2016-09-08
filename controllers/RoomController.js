@@ -20,19 +20,37 @@ var roomCreate = function(req, res) {
   });
 }
 
+
+//||||||||||||||||||||||||||--
+// GET ROOM
+//||||||||||||||||||||||||||--
 var roomRead = function(req, res) {
-  Room.findOne({room: req.body.roomCode}, function(err, room) {
+  console.log(req.body.roomCode)
+  Room.findOne({roomCode: req.body.roomCode}, function(err, room) {
     if (err) {
       res.json(err);
     }
     else {
+      console.log(room);
       res.json(room);
     }
   });
 }
 
+var all = function(req, res) {
+  Room.find({}, function(err, rooms) {
+    if (err) {
+      res.json(err);
+    }
+    else {
+      res.json(rooms);
+    }
+  })
+}
+
 module.exports = {
   roomCreate: roomCreate,
-  roomRead: roomRead
+  roomRead: roomRead,
+  all: all
 }
 

@@ -4,9 +4,9 @@
     .module("chordChart")
     .controller("SetupController", SetupController)
 
-  SetupController.$inject = ['$http', "GlobalService", "SocketService", "$state"]
+  SetupController.$inject = ["$log", "$http", "GlobalService", "SocketService", "$state"]
 
-  function SetupController($http, global, socket, $state) {
+  function SetupController($log, $http, global, socket, $state) {
     var vm = this;
 
     vm.lyrics = ''
@@ -29,7 +29,7 @@
         vm.data = response.data.trackList.track_list
       })
       .catch(function(err) {
-        console.log(err)
+        $log.log(err)
       })
     }
 
@@ -41,20 +41,22 @@
           title: song.track.track_name,
           lyrics: vm.lyrics
         })
-        console.log(vm.lyrics)
+        $log.log(vm.lyrics)
       })
       .catch(function(err) {
-        console.log(err)
+        $log.log(err)
       })
     }
 
     function done() {
-      // sending array of songs and room to io.js
+      // sending a post request to database
+      // this will go to index.js(route) and then to the actual function
       $http.post('/newRoom', {
         roomCode: global.createdCode,
         songs: vm.mySongs
-      }).then(function(response) {
-        console.log(response.data)
+      })
+      .then(function(response) {
+        // $log.log(response.data)
         $state.go('host')
       })
     }
