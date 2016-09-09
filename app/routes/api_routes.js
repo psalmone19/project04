@@ -47,7 +47,6 @@ router.get('/lyrics', function(req, res, next) {
     })
     .catch(function(err) {
       console.log(err)
-
     })
 })
 

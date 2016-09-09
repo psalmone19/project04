@@ -50,6 +50,10 @@ io.on('connection', function(socket) {
     io.emit("songLists")
     console.log("I received connection")
   })
+
+  // socket.on("gotSongs", function() {
+  //   io.emit("songs")
+  // })
 });
 
 

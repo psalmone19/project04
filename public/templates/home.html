@@ -1,44 +1,55 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
 <div class="home-container">
-  <h1 class="home-header">Music</h1>
-  <p class="home-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="nav-container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a ng-click="home.goHome()" class="navbar-brand" href="#">lyric<div id="box-logo">box</div></a>
+        </div>
 
-  <div class="home-button-container">
-    <a class="home-content-links join" ng-click="jointoggle = !jointoggle">Join</a>
-    <a class="home-content-links host" ng-click="hosttoggle = !hosttoggle">Host</a>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a ng-click="home.goToAbout()" href="#">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
   </div>
 
-  <form class="join-host-show">
-    <input ng-model="home.codeToJoin" class="hidden-input" ng-show="jointoggle" type="text" placeholder="Enter code" autofocus>
-    <button ng-click="home.join()" type="button" class="btn btn-primary" ng-show="jointoggle">Join</button>
+  <div class="content-form-container">
+    <div class="lyricBox">
+      <h1 class="home-header">L y r i c &nbsp;B o x</h1>
+    </div>
 
-    <input ng-model="home.createdCode" class="hidden-input create-code" ng-show="hosttoggle" type="text" placeholder="Create code" autofocus>
-    <button ng-click="home.host()" type="button" class="btn btn-success" ng-show="hosttoggle">Create</button>
-  </form>
+    <div class="form-button-con">
+      <p class="home-content">Share your lyrics. Sing with friends.</p>
+      <div class="home-button-container">
+        <a class="home-content-links join" ng-click="jointoggle = !jointoggle">Join</a>
+        <a class="home-content-links host" ng-click="hosttoggle = !hosttoggle">Host</a>
+      </div>
+
+      <form class="join-host-show">
+        <input ng-model="home.codeToJoin" class="hidden-input" ng-show="jointoggle" type="text" placeholder="Enter code" autofocus>
+        <button ng-click="home.join()" type="button" class="btn btn-primary" ng-show="jointoggle">Join</button>
+
+        <input ng-model="home.createdCode" class="hidden-input create-code" ng-show="hosttoggle" type="text" placeholder="Create code" autofocus>
+        <button ng-click="home.host()" type="button" class="btn btn-success" ng-show="hosttoggle">Create</button>
+      </form>
+    </div>
+
+  </div>
 
   <h1>{{ home.error }}</h1>
+  <footer>
+    <p class="footer">©Designed and developed by Egan Bernardino.</p>
+  </footer>
 </div>
 
 

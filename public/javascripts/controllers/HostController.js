@@ -4,9 +4,9 @@
     .module("chordChart")
     .controller("HostController", HostController)
 
-  HostController.$inject = ["$log", "$scope", "SocketService", "GlobalService", "$state", "$http"]
+  HostController.$inject = ["$window", "$log", "$scope", "$rootScope", "$location", "SocketService", "GlobalService", "$state", "$http"]
 
-  function HostController ($log, $scope, socket, global, $state, $http) {
+  function HostController ($window, $log, $scope, $rootScope, $location, socket, global, $state, $http) {
     var vm = this;
     var index = 0;
 
@@ -42,6 +42,19 @@
         song.lyrics = song.lyrics.substring(0, index)
       })
     })
+
+    function goHome() {
+      $state.go("home")
+    }
+
+    // socket.emit("gotSongs", vm.listOfSongs)
+
+    // $rootScope.$on('$locationChangeStart', function(event, next, current) {
+      // event.preventDefault();
+    //   $window.location.href = '/home';
+    //   $window.location.reload();
+    // });
+
 
   }
 

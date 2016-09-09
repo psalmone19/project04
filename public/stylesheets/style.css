@@ -82,36 +82,90 @@ a {
 /******************************
 /////////// H O M E ///////////
 ******************************/
+#box-logo {
+  border: 1px solid white;
+  display: inline;
+  padding: 2px;
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-family: 'Play', sans-serif;
+  background-color: #666;
+}
+
 .home-container {
   height: 100vh;
   width: 100vw;
+  background-image: url("../images/lets_make_music-wallpaper-1440x900.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
   background-color: #333;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  /*flex: 1;*/
+}
+
+.content-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
 }
 
 .navbar {
   border-radius: 0 !important;
-  margin-bottom: 0 !important;
+  margin: 20px !important;
+  padding: 10px !important;
 }
 
 .home-header {
   color: white;
   text-align: center;
+  font-size: 100px;
   font-family: 'Open Sans', sans-serif;
+  margin: 0;
 }
 
-.home-content {
-  color: white;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
+.lyricBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  /*height: 300px;
+  width: 300px;
+  border: 1px solid white;
+  background-color: #7FB3D5;*/
+}
+
+.form-button-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .home-button-container {
   display: flex;
   justify-content: center;
 }
+
+.home-content {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  /*font-family: 'Josefin Slab', serif;*/
+  font-family: 'Raleway', sans-serif;
+}
+
 
 .join-host-show {
   display: flex;
@@ -141,9 +195,9 @@ a {
 }
 
 .home-content-links:hover {
-  background-color: #fff;
+  /*background-color: #fff;*/
   text-decoration: none;
-  color: #000;
+  color: #FFF;
   cursor: pointer;
 }
 
@@ -218,6 +272,31 @@ a {
 }
 
 
+/******************************
+///////// A B O U T /////////
+******************************/
+.about-content-container {
+  padding: 50px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
 
+}
+
+.aboutMe {
+}
+
+.aboutpic {
+  height: 100px;
+  width: 100px;
+}
+
+
+
+.footer {
+  text-align: center;
+
+}
 
 

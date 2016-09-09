@@ -18,6 +18,7 @@
     vm.hosttoggle = false
     vm.host = host
     vm.join = join
+    vm.goToAbout = goToAbout
 
     function host() {
       $http.post("/api/rooms", { roomCode: vm.createdCode })
@@ -44,6 +45,7 @@
         $log.log("joined", vm.codeToJoin);
         socket.emit("joinRoom", vm.codeToJoin)
     }
+
     socket.on("justJoin", function() {
       if (!hostIs) {
         global.createdCode = vm.codeToJoin;
@@ -51,6 +53,9 @@
       }
     })
 
+    function goToAbout() {
+      $state.go("about")
+    }
   }
 
 

@@ -24,6 +24,11 @@
           controller: "SetupController as setup",
           templateUrl: "/templates/setup.html"
         })
+        .state("about", {
+          url: "/about",
+          controller: "AboutController as about",
+          templateUrl: "/templates/about.html"
+        })
 
 
       $urlRouterProvider.otherwise("home");
