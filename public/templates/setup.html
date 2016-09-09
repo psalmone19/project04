@@ -1,8 +1,11 @@
-<form class="search-form">
-  <input type="search" ng-model="setup.artist" placeholder="Search artist">
-  <input type="search" ng-model="setup.track" placeholder="Search song">
-  <button ng-click="setup.getTrack()" type="submit">Submit</button>
-</form>
+
+<div class="setup-container">
+  <form class="search-form">
+    <input type="search" ng-model="setup.artist" placeholder="Search artist">
+    <input type="search" ng-model="setup.track" placeholder="Search song">
+    <button ng-click="setup.getTrack()" type="submit">Submit</button>
+  </form>
+</div>
 
 <div class="search-list">
   <div class="songs" ng-repeat="song in setup.data" ng-click="setup.select(song)">
@@ -14,4 +17,6 @@
   </div>
 </div>
 
-<a ng-click="setup.done()" href="">Done</a>
+<div class="done-button">
+  <a ng-click="setup.done()" href="">Done</a>
+</div>

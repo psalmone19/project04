@@ -10,35 +10,13 @@
     var vm = this;
     var index = 0;
 
-    // vm.title = vm.song.title
-    // vm.current = vm.song.sections[index]
-    // vm.next = vm.song.sections[index + 1]
-    vm.nextFunc = next;
-    vm.back = back;
-    vm.sectionSelect = sectionSelect;
     vm.listOfSongs;
+    vm.selectSong = selectSong;
+    vm.currentSong = 0;
 
-    function next($index) {
-      index++;
-      vm.current = vm.song.sections[index]
-      vm.next = vm.song.sections[index + 1]
-      socket.emit('change-section', index)
-    }
-
-    function back($index) {
-      index--;
-      vm.current = vm.song.sections[index]
-      vm.next = vm.song.sections[index - 1]
-      socket.emit('change-section', index)
-    }
-
-    function sectionSelect($index) {
-      index = $index;
-      vm.current = vm.song.sections[index]
-      vm.next = vm.song.sections[index + 1]
-      // sender
-      socket.emit('change-section', index)
-      $log.log("Sent to server")
+    function selectSong(i) {
+      $log.log(i);
+      vm.currentSong = i;
     }
 
     // receiver
@@ -52,15 +30,6 @@
       })
     })
 
-    // socket.on('songLists', function(listOfSongs) {
-    //   $log.log("list of song ran")
-    //   vm.listOfSongs = listOfSongs
-    //   $scope.$apply()
-    // })
-
-    // socket.emit('getSongList')
-
-
     $http.get('/api/rooms') // /?room=' + global.createdCode
     .then(function(response) {
       var myRoom = response.data.filter(function(rum) {
@@ -68,11 +37,32 @@
       })[0];
       vm.listOfSongs = myRoom.songs;
       $log.log(vm.listOfSongs);
+      vm.listOfSongs.forEach(function(song) {
+        var index = song.lyrics.indexOf("...")
+        song.lyrics = song.lyrics.substring(0, index)
+      })
     })
 
   }
 
 })();
+
+
+// vm.nextFunc = next;
+// vm.back = back;
+// vm.sectionSelect = sectionSelect;
+
+// socket.on('songLists', function(listOfSongs) {
+//   $log.log("list of song ran")
+//   vm.listOfSongs = listOfSongs
+//   $scope.$apply()
+// })
+
+// socket.emit('getSongList')
+
+// vm.title = vm.song.title
+// vm.current = vm.song.sections[index]
+// vm.next = vm.song.sections[index + 1]
 
 // vm.song = {
 //   title: "How Great is Our God",
@@ -119,4 +109,28 @@
 //       How great is our God`
 //     }
 //   ]
+// }
+
+
+// function next($index) {
+//   index++;
+//   vm.current = vm.song.sections[index]
+//   vm.next = vm.song.sections[index + 1]
+//   socket.emit('change-section', index)
+// }
+
+// function back($index) {
+//   index--;
+//   vm.current = vm.song.sections[index]
+//   vm.next = vm.song.sections[index - 1]
+//   socket.emit('change-section', index)
+// }
+
+// function sectionSelect($index) {
+//   index = $index;
+//   vm.current = vm.song.sections[index]
+//   vm.next = vm.song.sections[index + 1]
+//   // sender
+//   socket.emit('change-section', index)
+//   $log.log("Sent to server")
 // }

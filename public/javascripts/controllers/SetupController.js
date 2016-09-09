@@ -26,6 +26,7 @@
     function getTrack() {
       $http.get('/api/tracks?artist='+vm.artist+'&track='+vm.track)
       .then(function(response) {
+        $log.log(response)
         vm.data = response.data.trackList.track_list
       })
       .catch(function(err) {

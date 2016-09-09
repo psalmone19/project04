@@ -23,9 +23,7 @@ a {
 .host-view .next {
   white-space: pre-line;
 }
-.host-view .repeat-next-buttons {
 
-}
 .host-view .section-buttons {
   display: flex;
   list-style-type: none;
@@ -48,8 +46,18 @@ a {
 
 .list-container {
   display: flex;
+  flex-direction: column;
   width: 100%;
+}
 
+.list-of-tracks {
+  list-style: none;
+  cursor: pointer;
+  padding: 0px;
+}
+
+.setlist {
+  padding: 0px;
 }
 
 
@@ -59,15 +67,8 @@ a {
 ******************************/
 
 .lyrics {
-  font-size: 100%;
+  font-size: 80px;
   white-space: pre-line;
-}
-
-.lyrics .current {
-
-}
-.lyrics .next {
-
 }
 
 .btn {
@@ -100,6 +101,7 @@ a {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
 .home-content {
   color: white;
   text-align: center;
@@ -178,8 +180,14 @@ a {
   border: 1px solid black;
 }*/
 
+.setup-container {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+}
+
 .search-form {
-  margin-bottom: 20px;
+  margin: 20px;
 }
 
 .search-list {
@@ -205,16 +213,8 @@ a {
   flex-direction: column;
 }
 
-.albumcover {
-
-}
-
-.song-title {
-
-}
-
-.artist {
-
+.done-button {
+  background-color: #FACADE;
 }
 
 
