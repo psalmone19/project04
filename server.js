@@ -9,7 +9,7 @@ require('dotenv').load()
 
 mongoose.connect(process.env.MONGODB_URI)
 
-var routes = require('./routes/index');
+var routes = require('./app/routes/api_routes');
 
 var app = express();
 

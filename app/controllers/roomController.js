@@ -1,4 +1,4 @@
-var Room = require("../models/song.js")
+var Room = require("../models/song")
 
 
 //||||||||||||||||||||||||||--

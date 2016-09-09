@@ -1,6 +1,6 @@
 var io = require('socket.io')();
 var rooms = [];
-var Room = require('./models/song');
+var Room = require('./app/models/song');
 
 function updateRooms() {
   Room.find({}, function(err, rooms) {

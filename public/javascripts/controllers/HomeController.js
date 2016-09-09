@@ -24,7 +24,7 @@
         .then(function(response) {
           socket.emit("moveToSetup", vm.createdCode)
           hostIs = true;
-          console.log("you're a host", vm.createdCode)
+          $log.log("you're a host", vm.createdCode)
           global.createdCode = vm.createdCode;
         }, function(err) {
           $log.warn(err);
@@ -35,13 +35,13 @@
         $state.go('setup');
     })
     socket.on("roomExists", function() {
-        console.log("wanna go night night?")
+        $log.log("wanna go night night?")
         vm.error = "Knock somewhere else."
         $scope.$apply();
     })
 
     function join() {
-        console.log("joined", vm.codeToJoin);
+        $log.log("joined", vm.codeToJoin);
         socket.emit("joinRoom", vm.codeToJoin)
     }
     socket.on("justJoin", function() {

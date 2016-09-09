@@ -1,8 +1,13 @@
 <div class="container host-view">
-   <div class="lyrics">
+  <div class="list-container">
+    <ul>
+      <li ng-repeat="song in host.listOfSongs">{{song.title}}</li>
+    </ul>
+   </div>
+   <!-- <div class="lyrics"> -->
      <!-- <h1>{{  }}</h1> -->
-     <div class="current">{{ host.current.name }} <br> {{ host.current.content }}</div>
-     <div class="next">{{ host.next.name }} <br> {{ host.next.content }}</div>
+     <!-- <div class="current">{{ host.current.name }} <br> {{ host.current.content }}</div> -->
+     <!-- <div class="next">{{ host.next.name }} <br> {{ host.next.content }}</div>
    </div>
    <div class="repeat-next-buttons">
      <button ng-click="host.back($index)">Back</button>
@@ -10,12 +15,11 @@
    </div>
    <ul class="section-buttons">
      <li ng-repeat="section in host.song.sections" ng-click="host.sectionSelect($index)"><button>{{ section.name }}</button></li>
-   </ul>
+   </ul> -->
 
-   <div>
-     <ul>
-       <li ng-repeat="song in host.listOfSong">{{song.title}}</li>
-     </ul>
+
+   <div class="lyrics-container">
+     <p class="lyrics">{{host.listOfSongs[0].lyrics}}</p>
    </div>
 
 </div>
