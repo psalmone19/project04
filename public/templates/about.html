@@ -25,11 +25,14 @@
   <div class="about-content-container">
     <div id="imageAboutCon">
       <img class="aboutpic" ng-src="{{ about.image }}" alt="egan">
-      <p class="aboutMe"> <strong>THE PROJECT</strong> <br> {{ about.about }}</p>
-      <ul>
-        <p><strong>CONTACT INFROMATION</strong></p>
-        <li ng-repeat="contact in about.contact">{{ contact }}</li>
-      </ul>
+
+      <div class="contact-info">
+        <p class="aboutMe"> <strong>THE PROJECT</strong> <br> {{ about.about }}</p>
+        <ul style="padding-left: 50px; list-style: none;">
+          <p style="margin: 0px;"><strong>CONTACT INFROMATION</strong></p>
+          <li ng-repeat="contact in about.contact">{{ contact }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 

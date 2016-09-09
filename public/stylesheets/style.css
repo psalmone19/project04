@@ -285,7 +285,7 @@ a {
   display: flex;
   /*background-color: green;*/
   justify-content: center;
-  align-items: flex-start;
+  align-items: space-around;
 }
 
 .about-content-container {
@@ -309,11 +309,17 @@ a {
   border-radius: 100%;
 }
 
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 
 
 
 /******************************
-///////// A B O U T /////////
+///////// F O O T E R /////////
 ******************************/
 .footer {
   text-align: center;
