@@ -43,9 +43,6 @@
       })
     })
 
-    function goHome() {
-      $state.go("home")
-    }
 
     // socket.emit("gotSongs", vm.listOfSongs)
 

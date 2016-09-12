@@ -1,6 +1,6 @@
 <div class="container host-view">
   <div class="list-container">
-    <a ng-click="host.goHome()" class="navbar-brand" href="#">lyric<div id="box-logo">box</div></a>
+    <a ui-sref="home" class="navbar-brand">lyric<div id="box-logo">box</div></a>
     <h4>My Songs</h4>
     <ul class="setlist">
       <li class="list-of-tracks" ng-repeat="(i, song) in host.listOfSongs" ng-click="host.selectSong(i)">{{song.title}}</li>

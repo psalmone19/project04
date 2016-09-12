@@ -18,7 +18,6 @@
     vm.hosttoggle = false
     vm.host = host
     vm.join = join
-    vm.goToAbout = goToAbout
 
     function host() {
       $http.post("/api/rooms", { roomCode: vm.createdCode })
@@ -52,10 +51,6 @@
         $state.go("host");
       }
     })
-
-    function goToAbout() {
-      $state.go("about")
-    }
   }
 
 
