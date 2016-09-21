@@ -22,8 +22,8 @@
   </nav>
   <div class="setup-container">
   <form class="search-form">
-    <input class="search-input" autofocus="autofocus" type="search" ng-model="setup.artist" placeholder="Search artist">
-    <input class="search-song search-input" type="search" ng-model="setup.track" placeholder="Search song">
+    <input class="search-input" autofocus="autofocus" type="search" ng-model="setup.artist" placeholder="Search by artist">
+    <input class="search-song search-input" type="search" ng-model="setup.track" placeholder="Search by song">
     <button class="submit-button" type="submit" ng-click="setup.getTrack()"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
   </form>
   </div>
@@ -40,5 +40,6 @@
 </div>
 
 <div class="done-button">
-  <a class="done-link" ng-click="setup.done()">Done</a>
+  <div>Song bucket: {{ setup.bucket }}</div>
+  <button class="done-link" ng-click="setup.done()">Done</button>
 </div>

@@ -325,9 +325,9 @@ a {
 .done-button {
   background-color: #FACADE;
   height: 50px;
-  width: 100px;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   cursor: pointer;
 }

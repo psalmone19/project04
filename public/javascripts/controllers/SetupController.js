@@ -9,6 +9,7 @@
   function SetupController($log, $http, global, socket, $state) {
     var vm = this;
 
+    vm.bucket = '';
     vm.lyrics = ''
     vm.data = ''
     vm.artist = ''
@@ -37,6 +38,7 @@
     function select(song) {
       $http.get('/api/lyrics?track_id='+song.track.track_id)
       .then(function(response) {
+        vm.bucket = bucket++;
         vm.lyrics = response.data.lyrics
         vm.mySongs.push({
           title: song.track.track_name,
@@ -50,7 +52,7 @@
     }
 
     function done() {
-      // sending a post request to database
+      // sending a put request to database
       // this will go to index.js(route) and then to the actual function
       $http.put('/api/rooms?code=' + global.createdCode, {
         songs: vm.mySongs
