@@ -1,10 +1,32 @@
+<div class="setup-navbar-container">
+  <nav class="navbar transparent navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">lyric<div id="box-logo">box</div></a>
+    </div>
 
-<div class="setup-container">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="about" style="color: white;">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  </nav>
+  <div class="setup-container">
   <form class="search-form">
     <input class="search-input" autofocus="autofocus" type="search" ng-model="setup.artist" placeholder="Search artist">
     <input class="search-song search-input" type="search" ng-model="setup.track" placeholder="Search song">
     <button class="submit-button" type="submit" ng-click="setup.getTrack()"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
   </form>
+  </div>
 </div>
 
 <div class="search-list">

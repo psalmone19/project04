@@ -1,17 +1,42 @@
-<div class="container host-view">
-  <div class="list-container">
-    <a ui-sref="home" class="navbar-brand">lyric<div id="box-logo">box</div></a>
-    <h4>My Songs</h4>
-    <ul class="setlist">
-      <li class="list-of-tracks" ng-repeat="(i, song) in host.listOfSongs" ng-click="host.selectSong(i)">{{song.title}}</li>
-    </ul>
-   </div>
+<div class="host-view">
+  <div class="nav-container">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" ui-sref="home">lyric<div id="box-logo">box</div></a>
+        </div>
 
-   <hr>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a ui-sref="about">About</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
 
-   <div class="lyrics-container">
-     <p class="lyrics">{{host.listOfSongs[host.currentSong].lyrics}}</p>
-   </div>
+  <div class="listAndlyrics">
+    <div class="list-container">
+      <h4>My Songs</h4>
+      <ul class="setlist">
+        <li class="list-of-tracks" ng-repeat="(i, song) in host.listOfSongs" ng-click="host.selectSong(i)">{{song.title}}</li>
+      </ul>
+    </div>
+
+    <hr style="width: 90%;">
+
+    <div class="lyrics-container">
+      <p class="lyrics">{{host.listOfSongs[host.currentSong].lyrics}}</p>
+    </div>
+  </div>
 
 </div>
 

@@ -11,15 +11,11 @@ a {
 /******************************
 /////////// H O S T ///////////
 ******************************/
-.host-view {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*background-color: red;*/
-}
+/*
 .host-view .current {
   white-space: pre-line;
 }
+
 .host-view .next {
   white-space: pre-line;
 }
@@ -34,20 +30,22 @@ a {
   margin: 10px;
   text-align: center;
   border: 1px solid red;
-}
+}*/
 
-.host-view .lyrics-container {
-  height: 100vh;
-  width: 50%;
-  /*background-color: blue;*/
+.host-view {
+  max-height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  background-color: #666;
 }
 
 .list-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  padding-left: 55px;
+  padding-top: 35px
+  /*background-color: red;*/
 }
 
 .list-of-tracks {
@@ -60,6 +58,20 @@ a {
   padding: 0px;
 }
 
+.listAndlyrics {
+  background-color: #fff;
+  width: 80%;
+  margin: 0 auto
+}
+
+.host-view .lyrics-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  /*background-color: #222;*/
+  margin: 0 auto;
+}
+
 
 
 /******************************
@@ -67,7 +79,7 @@ a {
 ******************************/
 
 .lyrics {
-  font-size: 80px;
+  font-size: 40px;
   white-space: pre-line;
 }
 
@@ -123,7 +135,7 @@ a {
 
 .navbar {
   border-radius: 0 !important;
-  /*margin: 20px !important;*/
+  margin: 0 !important;
   padding: 10px !important;
 }
 
@@ -140,10 +152,6 @@ a {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  /*height: 300px;
-  width: 300px;
-  border: 1px solid white;
-  background-color: #7FB3D5;*/
 }
 
 .form-button-con {
@@ -232,6 +240,17 @@ a {
   height: 100vh;
   border: 1px solid black;
 }*/
+.transparent {
+  background: transparent !important;
+  border: none !important;
+}
+
+.setup-navbar-container {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/listeningToMusic.jpg");
+  /*background-size: 100%;*/
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
 .setup-container {
   height: 75vh;
@@ -240,10 +259,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/listeningToMusic.jpg");
-  /*background-size: 100%;*/
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .search-form {
@@ -381,5 +396,12 @@ a {
   color: #333;
   font-family: 'Raleway', sans-serif;
 }
+
+/******************************
+//////// MEDIA QUERIES ////////
+******************************/
+
+
+
 
 
