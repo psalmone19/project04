@@ -99,7 +99,6 @@ a {
   width: 100vw;
   background-image: url("../images/lets_make_music-wallpaper-1440x900.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
   background-position: center;
   background-color: #333;
   display: flex;
@@ -124,7 +123,7 @@ a {
 
 .navbar {
   border-radius: 0 !important;
-  margin: 20px !important;
+  /*margin: 20px !important;*/
   padding: 10px !important;
 }
 
@@ -235,20 +234,61 @@ a {
 }*/
 
 .setup-container {
+  height: 75vh;
+  width: 100vw;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
-  background-color: red;
+  align-items: center;
+  background-image: url("../images/listeningToMusic.jpg");
+  /*background-size: 100%;*/
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .search-form {
-  margin: 20px;
+  /*margin: 20px;*/
+  background-color: #fff;
+  opacity: 0.98;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px #888;
+}
+
+.search-input {
+  font-size: 25px;
+  font-family: 'Raleway', sans-serif;
+  height: 80px;
+  outline: none;
+  border: none;
+  opacity: 0.99;
+  /*padding: 0 10px;*/
+}
+
+.search-song {
+  height: 60px;
+  border-left: thin solid #eee;
+  padding-left: 20px;
+}
+
+.fa {
+  color: orange;
+  padding: 0 20px;
+}
+
+.submit-button {
+  border: none;
+  background: none;
+  padding: 0;
+  width: 5;
 }
 
 .search-list {
   width: 80%;
   height: 90%;
   margin: 0 auto;
-  background-color: ;
 }
 
 .songs {
@@ -269,8 +309,23 @@ a {
 
 .done-button {
   background-color: #FACADE;
+  height: 50px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
+.done-link {
+  color: black;
+  cursor: pointer;
+}
+
+.done-link:hover, .done-link:visited, .done-link:link, .done-link:active {
+  text-decoration: none;
+  color: black;
+}
 
 /******************************
 ///////// A B O U T /////////

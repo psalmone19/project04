@@ -1,9 +1,9 @@
 
 <div class="setup-container">
   <form class="search-form">
-    <input type="search" ng-model="setup.artist" placeholder="Search artist">
-    <input type="search" ng-model="setup.track" placeholder="Search song">
-    <button ng-click="setup.getTrack()" type="submit">Submit</button>
+    <input class="search-input" autofocus="autofocus" type="search" ng-model="setup.artist" placeholder="Search artist">
+    <input class="search-song search-input" type="search" ng-model="setup.track" placeholder="Search song">
+    <button class="submit-button" type="submit" ng-click="setup.getTrack()"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
   </form>
 </div>
 
@@ -18,5 +18,5 @@
 </div>
 
 <div class="done-button">
-  <a ng-click="setup.done()" href="">Done</a>
+  <a class="done-link" ng-click="setup.done()">Done</a>
 </div>
