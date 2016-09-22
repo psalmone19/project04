@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="about" style="color: white;">About</a></li>
+        <li><a ui-sref="about" style="color: #fff;">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -39,7 +39,7 @@
   </div>
 </div>
 
-<div class="done-button">
-  <div>Song bucket: {{ setup.bucket }}</div>
+<div class="done-container">
+  <div style="color: #888;">Song bucket: {{ setup.bucket }}</div>
   <button class="done-link" ng-click="setup.done()">Done</button>
 </div>

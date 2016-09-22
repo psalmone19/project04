@@ -263,6 +263,7 @@ a {
 
 .search-form {
   /*margin: 20px;*/
+  width: 60%;
   background-color: #fff;
   opacity: 0.98;
   display: flex;
@@ -273,7 +274,8 @@ a {
 }
 
 .search-input {
-  font-size: 25px;
+  width: 100%;
+  font-size: 20px;
   font-family: 'Raleway', sans-serif;
   height: 80px;
   outline: none;
@@ -322,19 +324,26 @@ a {
   flex-direction: column;
 }
 
-.done-button {
-  background-color: #FACADE;
+.done-container {
+  /*background-color: #FACADE;*/
   height: 50px;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  cursor: pointer;
+  margin: 10px 0;
 }
 
 .done-link {
-  color: black;
+  height: 50px;
+  width: 50px;
+  color: #888;
   cursor: pointer;
+  border: 1px solid #666;
+  background-color: #fff;
+  border-radius: 100%;
+  text-align: center;
+  padding: 3px;
 }
 
 .done-link:hover, .done-link:visited, .done-link:link, .done-link:active {

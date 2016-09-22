@@ -9,7 +9,8 @@
   function SetupController($log, $http, global, socket, $state) {
     var vm = this;
 
-    vm.bucket = '';
+    vm.bucket = 0;
+    vm.selectedSong = false;
     vm.lyrics = ''
     vm.data = ''
     vm.artist = ''
@@ -38,12 +39,19 @@
     function select(song) {
       $http.get('/api/lyrics?track_id='+song.track.track_id)
       .then(function(response) {
-        vm.bucket = bucket++;
+        vm.selectedSong = true;
+        $log.log("testing select song:", vm.selectedSong)
         vm.lyrics = response.data.lyrics
         vm.mySongs.push({
           title: song.track.track_name,
           lyrics: vm.lyrics
         })
+        if (vm.selectedSong) {
+          vm.bucket += 1;
+        } else {
+          vm.selectedSong = false;
+          vm.bucket -= 1;
+        }
         $log.log(vm.lyrics)
       })
       .catch(function(err) {
