@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/tracks', function(req, res, next) {
   console.log("Request --->", req.query)
-  var rootUrl = "http://api.musixmatch.com/ws/1.1/track.search?";
+  var rootUrl = "https://api.musixmatch.com/ws/1.1/track.search?";
   var qTrack = "q_track="+req.query.track;
   var qArtist = "&q_artist="+req.query.artist;
   var hasLyrics = "&f_has_lyrics=1";
@@ -32,7 +32,7 @@ router.get('/tracks', function(req, res, next) {
 })
 
 router.get('/lyrics', function(req, res, next) {
-  var lyricUrl = "http://api.musixmatch.com/ws/1.1/track.lyrics.get?"
+  var lyricUrl = "https://api.musixmatch.com/ws/1.1/track.lyrics.get?"
   var trackid = "track_id="+req.query.track_id;
   var apikey = "&apikey="+process.env.API_KEY
   var newUrl= lyricUrl+trackid+apikey;

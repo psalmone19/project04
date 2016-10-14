@@ -31,7 +31,7 @@
 
 <div class="search-list">
   <div class="songs" ng-repeat="song in setup.data" ng-click="setup.select(song)">
-   <img class="albumcover" ng-src="{{song.track.album_coverart_100x100}}" alt="albumcover">
+   <img class="albumcover" src="{{ song.track.album_coverart_100x100 }}" alt="albumcover">
    <div class="song-artist">
      <strong><p class="song-title">{{ song.track.track_name }}</p></strong>
      <p class="artist">{{ song.track.artist_name }}</p>
