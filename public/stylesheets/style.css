@@ -385,14 +385,12 @@ a {
 
 .aboutpic {
   height: 20%;
-  width: 20%;
   border-radius: 100%;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 
@@ -410,8 +408,3 @@ a {
 /******************************
 //////// MEDIA QUERIES ////////
 ******************************/
-
-
-
-
-
